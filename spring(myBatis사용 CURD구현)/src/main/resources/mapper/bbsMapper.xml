@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bbs">
+	<select id="list" resultMap="rm">
+		select * from bbs
+	</select>
+	
+	<select id="select" parameterType="bbsDTO" resultMap="rm">
+					<!-- 레코드의 항목과 DTO의 변수 이름이 같으면 이런식으로 가능 -->
+		select * from bbs where num = #{num}
+	</select>
+	
+	<resultMap type="bbsDTO" id="rm">
+		<result property="num" column="num"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="write" column="write"/>
+	</resultMap>
+</mapper>

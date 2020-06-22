@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="reply">
+	<insert id="insert" parameterType="replyDTO">
+		insert into reply values(#{id},#{bbsnum},#{content},#{writer})
+	</insert>
+	<select id="list" parameterType="replyDTO" resultMap="rm">
+					<!-- 레코드의 항목과 DTO의 변수 이름이 같으면 이런식으로 가능 -->
+		select * from reply where bbsnum = #{bbsnum}
+	</select>
+	
+	<resultMap type="replyDTO" id="rm">
+		<result property="id" column="id"/>
+		<result property="bbsnum" column="bbsnum"/>
+		<result property="content" column="content"/>
+		<result property="writer" column="writer"/>
+	</resultMap>
+</mapper>
