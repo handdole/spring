@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- <bean id ="dao" class="com.mega.mvc05.MemberDAO"></bean> -->
+	
+	<!-- 싱글톤 객체 생성만 담당하는 팩토리 기법의 팩토리 역활만 한다. -->
+	<!-- factory 기법 -->
+	<!-- 해당 Context에서 factory역활을 하는 파일 : context파일 -->
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean id="car1" class="com.mega.mvc05.AppleCar">
+		<constructor-arg ref="lgwindow"></constructor-arg>
+	</bean>
+	<bean id="car2" class="com.mega.mvc05.BananaCar">
+		<constructor-arg ref="kccwindow"></constructor-arg>
+	</bean>
+	<!-- 싱글톤 객체 만들어주세요! -->
+	<bean id="kccwindow" class="com.mega.mvc05.KCCWindow"></bean>
+	<bean id="lgwindow" class="com.mega.mvc05.LGWindow"></bean>
+</beans>
